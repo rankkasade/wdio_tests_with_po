@@ -54,7 +54,7 @@ exports.config = {
     capabilities: [{
     // capabilities for local browser web tests
         browserName: 'chrome', // or "firefox", "microsoftedge", "safari"
-        browserVersion: 'stable',
+        browserVersion: 'stable', 'goog:chromeOptions': {binary: '/var/folders/2j/ht50d80x64scms9175jtszx80000gn/T/chrome/mac-118.0.5993.70/chrome-mac-x64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing'},
     }],
     //
     // ===================

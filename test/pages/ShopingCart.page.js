@@ -11,6 +11,20 @@ class ShopingCartPage extends BaseSwagLabPage {
 
     get cartItems() { return $$(this.cartItemSelector); }
 
+    get checkoutBtn() { return $('#checkout'); }
+
+    async cartItemParameters() {
+        const cartItemParameters = [];
+        for await (const cartItem of this.cartItems) {
+            cartItemParameters.push({
+                name: await cartItem.$('.inventory_item_name').getText(),
+                desc: await cartItem.$('.inventory_item_desc').getText(),
+                price: await cartItem.$('.inventory_item_price').getText(),
+            });
+        }
+        return cartItemParameters;
+    }
+
     // async below added to show the function returns a promise
     async getCartItemByName(name) { return $(`${this.cartItemSelector}=${name}`); }
 
